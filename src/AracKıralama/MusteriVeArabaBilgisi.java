@@ -6,12 +6,20 @@ import java.util.Scanner;
 
 public class MusteriVeArabaBilgisi extends AracTalep{
     static Scanner scan=new Scanner(System.in);
+
+    public static final String W = "\u001B[37m";//consol renklendırme kodları
+    public static final String R = "\u001B[31m";
+    public static final String G = "\u001B[32m";
+    public static final String Y = "\u001B[33m";
+    public static final String B = "\u001B[34m";
+
+
     static int toplamGun;
 
     static List<AracTalep> talepEdilenAracListesi = new ArrayList<>();
     public static void girisPaneli() {
-        System.out.println("***JAVA RENT a CAR'a HOSGELDİNİZ***");
-        System.out.println("Arac kiralamak icin 1'i \nCıkıs yapmak icin 2'yi tuslayiniz ");
+        System.out.println(B + "***JAVA RENT a CAR'a HOSGELDİNİZ***" +B);
+        System.out.println(Y+"Arac kiralamak icin 1'i \nCıkıs yapmak icin 2'yi tuslayiniz "+Y);
         int secim = scan.nextInt();
         switch (secim) {
             case 1:aracTalep();break;
@@ -55,14 +63,12 @@ public class MusteriVeArabaBilgisi extends AracTalep{
 
         }else if(aGunu > tGunu) {
             System.out.println(" alis gunu teslim gununden sonra olmaz ");
-            aracTalep();
-
         }else {
-            System.out.println("_______________________________________________________________________");
-            System.out.println("alınacak gun :" + alinacakGun + "\nalınacak sehır: " + alinacakSehir + "\nteslim gunu: " + teslimGunu
-                    + "\nalınacak saat:" + alisSaati + "\nteslım saatı:" + teslimSaati);
+            System.out.println(R+"_______________________________________________________________________"+R );
+            System.out.println(Y+"alınacak gun :" + alinacakGun + "\nalınacak sehır: " + alinacakSehir + "\nteslim gunu: " + teslimGunu
+                    + "\nalınacak saat:" + alisSaati + "\nteslım saatı:" + teslimSaati+Y);
 
-            System.out.println("_______________________________________________________________________");
+            System.out.println(R+"_______________________________________________________________________"+Y);
         }
         toplamGun=(tAyi-aAyi)*30+(tGunu-aGunu);
         System.out.println("odenecek gun sayisi "+toplamGun);
